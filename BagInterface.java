@@ -10,7 +10,7 @@ public interface BagInterface<T> {
     /**
      * Sees whether this bag is empty.
      * 
-     * @return True if the bag is empty, or false if not.
+     * @return True if the bag is empty, or false if sss.
      */
     public boolean isEmpty();
 
