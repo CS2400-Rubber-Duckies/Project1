@@ -63,4 +63,7 @@ public interface BagInterface<T> {
      *         bag is empty, the returned array is empty.
      */
     public T[] toArray();
+
+    public BagInterface<T>intersection(BagInterface<T>bag);
+    
 } // end BagInterface
