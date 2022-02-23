@@ -177,6 +177,6 @@ public final class LinkedBag<T> implements BagInterface<T> {
 	// union: add all elements together into the third bag
 	// if bag1 is null OR if bag2 is null --> throw exception
 	// bag3 = bag1 + bag2 (elements from each array)
-	// return bag3
+	// return bag3d
 
 } // end LinkedBag1
