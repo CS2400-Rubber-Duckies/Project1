@@ -160,7 +160,7 @@ public class ResizableArrayBag() implements BagInterface{
      * Remove all occurences from the calling ArrayBag of the items found in
      * parameter other.
      */
-    public boolean removeItems(Bag other) {
+    public boolean removeItems(ResizableArrayBag other) {
 
         // Convert 'other' to an array to iterate
         Object[] other_arr = other.toArray();
@@ -190,18 +190,18 @@ public class ResizableArrayBag() implements BagInterface{
      *
      * Return a non-duplicate ArrayBag as the union of the incoming and calling object
      */
-    public Bag unionWith(Bag other) {
+    public ResizableArrayBag unionWith(ResizableArrayBag other) {
 
         // Check if either bag is empty
         if (this.numItems() == 0 && other.numItems() == 0) {
-            return new ArrayBag();
+            return new ResizableArrayBag();
         }
 
         // Determine the size of the new ArrayBag
         int newCapacity = this.capacity() + other.capacity();
 
         // Create new ArrayBag to hold unioned values
-        ArrayBag b = new ArrayBag(newCapacity);
+        ResizableArrayBag b = new ArrayBag(newCapacity);
 
         // Convert the incoming object to an array and copy each of its items
         // that are not in the new ArrayBag
