@@ -16,9 +16,9 @@ public final class LinkedBag<T> implements BagInterface<T>
 	{
       // Add to beginning of chain:
 		Node newNode = new Node(newEntry);
-		newNode.next = firstNode;  // Make new node reference rest of chain
-                                 // (firstNode is null if chain is empty)
-      firstNode = newNode;       // New node is at beginning of chain
+		newNode.next = firstNode;   // Make new node reference rest of chain
+                                   // (firstNode is null if chain is empty)
+      firstNode = newNode;        // New node is at beginning of chain
 		numberOfEntries++;
       
 		return true;
@@ -67,7 +67,14 @@ public final class LinkedBag<T> implements BagInterface<T>
                 was successful, or null. */
 	public T remove()
    {
-      return null; // STUB
+	T result = null;
+	if (firstNode != null)
+	{
+	   result = firstNode.data; 
+	   firstNode = firstNode.next; // Remove first node from chain
+	   numberOfEntries--;
+	} // end if
+	return result;
    } // end remove
    
 	/** Removes one occurrence of a given entry from this bag.
@@ -75,13 +82,23 @@ public final class LinkedBag<T> implements BagInterface<T>
        @return  True if the removal was successful, or false otherwise. */
    public boolean remove(T anEntry)
    {
-      return false; // STUB
+	boolean result = false;
+	Node nodeN = getReferenceTo(anEntry);
+	
+	if (nodeN != null)
+	{
+	   nodeN.data = firstNode.data; // Replace located entry with entry in first node
+	   firstNode = firstNode.next;  // Remove first node
+	   numberOfEntries--;
+	   result = true;
+	} // end if
    } // end remove
 	
 	/** Removes all entries from this bag. */
 	public void clear()
    {
-      // STUB
+	while (!isEmpty()) 
+	remove();
    } // end clear
 	
 	/** Counts the number of times a given entry appears in this bag.
@@ -89,7 +106,22 @@ public final class LinkedBag<T> implements BagInterface<T>
 		 @return  The number of times anEntry appears in the bag. */
 	public int getFrequencyOf(T anEntry)
    {
-      return 0; // STUB
+	int frequency = 0;
+	int loopCounter = 0;
+	Node currentNode = firstNode;
+
+	while ((loopCounter < numberOfEntries) && (currentNode != null))
+	{
+	   if (anEntry.equals(currentNode.data))
+	   {
+		  frequency++;
+	   } 
+	   
+	   loopCounter++;
+	   currentNode = currentNode.next;
+	} 
+
+	  return frequency;
    } // end getFrequencyOf
 	
 	/** Tests whether this bag contains a given entry.
@@ -97,7 +129,17 @@ public final class LinkedBag<T> implements BagInterface<T>
 		 @return  True if the bag contains anEntry, or false otherwise. */
 	public boolean contains(T anEntry)
    {
-      return false; // STUB
+	boolean found = false;
+	Node currentNode = firstNode;
+	
+	while (!found && (currentNode != null))
+	{
+	   if (anEntry.equals(currentNode.data))
+		  found = true;
+	   else
+		  currentNode = currentNode.next;
+	} // end while
+	return found;
    } // end contains
 
 	private class Node
@@ -119,18 +161,20 @@ public final class LinkedBag<T> implements BagInterface<T>
 
     @Override
     public BagInterface<T> intersection(BagInterface<T> bag) {
-		
-        // TODO Auto-generated method stub
+		BagInterface<T> Bag3 = new LinkedBag<T>(); 
+		//compare bag1 and bag2 then remove 
+// TODO Auto-generated method stub
         return null;
     }
 
 	@Override
     public BagInterface<T>union(BagInterface<T>bag) {
-		BagInterface<T> Bag3 = new LinkedBag<T>();
+		BagInterface<T> Bag3 = new LinkedBag<T>(); //made a new array to the union in
 
 		T[] Bag1 = this.toArray();
 		for (T index : Bag1) {
 			Bag3.add(index);
+
 		}
         T[] Bag2 = bag.toArray();
 		for (T index : Bag2) {
