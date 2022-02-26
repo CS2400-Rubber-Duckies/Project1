@@ -62,7 +62,7 @@ public interface BagInterface<T> {
      * @param anEntry The entry to find.
      * @return True if the bag contains anEntry, or false if not.
      */
-    public String getReferenceTo(T anEntry);
+    public Node getReferenceTo(T anEntry);
 
     /**
      * Retrieves all entries that are in this bag.
