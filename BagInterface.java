@@ -57,6 +57,14 @@ public interface BagInterface<T> {
     public boolean contains(T anEntry);
 
     /**
+     * Locates a specified entry in a bag.
+     * 
+     * @param anEntry The entry to find.
+     * @return True if the bag contains anEntry, or false if not.
+     */
+    public String getReferenceTo(T anEntry);
+
+    /**
      * Retrieves all entries that are in this bag.
      * 
      * @return A newly allocated array of all the entries in the bag. Note: If the
@@ -64,10 +72,10 @@ public interface BagInterface<T> {
      */
     public T[] toArray();
 
-    public BagInterface<T>intersection(BagInterface<T>bag);
-   
-    public BagInterface<T>difference(BagInterface<T>bag);
-  
-    public BagInterface<T>union(BagInterface<T>bag);
-    
+    public BagInterface<T> intersection(BagInterface<T> bag);
+
+    public BagInterface<T> difference(BagInterface<T> bag);
+
+    public BagInterface<T> union(BagInterface<T> bag);
+
 } // end BagInterface
