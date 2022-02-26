@@ -270,3 +270,5 @@ public final class LinkedBag<T> implements BagInterface<T> {
 	 * }
 	 */
 } // end LinkedBag1
+
+// trying to figure out what error is
