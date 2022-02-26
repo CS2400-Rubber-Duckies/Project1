@@ -103,7 +103,7 @@ public final class LinkedBag<T> implements BagInterface<T> {
 	 * @param anEntry The entry to find.
 	 * @return True if the bag contains anEntry, or false if not.
 	 */
-	public Node getReferenceTo(Node anEntry) {
+	public Node getReferenceTo(T anEntry) {
 		boolean check = false;
 		Node currentNode = firstNode;
 		while (!check && (currentNode != null)) {
@@ -133,12 +133,14 @@ public final class LinkedBag<T> implements BagInterface<T> {
 			numberOfEntries--;
 			result = true;
 		} // end if
+		return result;
 	} // end remove
 
 	/** Removes all entries from this bag. */
 	public void clear() {
-		while (!isEmpty())
+		while (!isEmpty()) {
 			remove();
+		}
 	} // end clear
 
 	/**
@@ -194,25 +196,61 @@ public final class LinkedBag<T> implements BagInterface<T> {
 
 	@Override
 	public BagInterface<T> union(BagInterface<T> bag) {
-		BagInterface<T> Bag3 = new LinkedBag<T>(); // made a new array to the union in
 
-		T[] Bag1 = this.toArray();
-		for (T index : Bag1) {
-			Bag3.add(index);
+		BagInterface<T> bag3 = new LinkedBag<T>(); // made a new array to the union in
+		// while looping through the bag, add unique node
+		// if we already have it in bag3, then don't add
 
+		int length = this.getCurrentSize() + bag.getCurrentSize();
+
+		T[] bag1 = this.toArray();
+		T[] bag2 = bag.toArray();
+
+		if (bag1 == null || bag2 == null) {
+			throw new IllegalArgumentException("Bag(s) cannot be null.");
 		}
-		T[] Bag2 = bag.toArray();
-		for (T index : Bag2) {
-			Bag3.add(index);
+
+		for (int i = 0; i < length; i++) {
+			if (!bag3.contains(bag1[i])) {
+				bag3.add(bag1[i]);
+			}
+			if (!bag3.contains(bag2[i])) {
+				bag3.add(bag2[i]);
+			}
 		}
-		return Bag3;
-		// TODO Auto-generated method stub
-		// return null;
+
+		return bag3;
 	}
 
 	@Override
 	public BagInterface<T> difference(BagInterface<T> bag) {
+		BagInterface<T> bag3 = new LinkedBag<T>(); // made a new array to the union in
+		// loop through size of bag 1 and 2
+		// if bag2 has an element in bag1 --> remove that element
+		// 
 
+		int length = this.getCurrentSize() + bag.getCurrentSize();
+
+		T[] bag1 = this.toArray();
+		T[] bag2 = bag.toArray();
+
+		if (bag1 == null || bag2 == null) {
+			throw new IllegalArgumentException("Bag(s) cannot be null.");
+		}
+
+		for (int i = 0; i < this.getCurrentSize(); i++) {
+			for (int j = 0; j < bag.getCurrentSize(); j++)
+			{
+				if (bag1[i] == bag2[j])
+				{
+					remove 
+				}
+			}
+			if (bag1[i] == bag2[i])
+			{
+				
+			}
+		}
 		// TODO Auto-generated method stub
 		return null;
 	}
