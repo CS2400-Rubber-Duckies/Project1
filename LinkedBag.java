@@ -97,18 +97,18 @@ public final class LinkedBag<T> implements BagInterface<T> {
 		return result;
 	} // end remove
 
-	public Node getReferenceTo(T anEntry) {
-		boolean check = false;
-		Node currentNode = firstNode;
-		while (!check && (currentNode != null)) {
-			if (anEntry.equals(currentNode.data)) {
-				check = true;
-			} else {
-				currentNode = currentNode.next;
-			}
-		}
-		return currentNode;
-	} // end remove
+	// public Node getReferenceTo(T anEntry) {
+	// boolean check = false;
+	// Node currentNode = firstNode;
+	// while (!check && (currentNode != null)) {
+	// if (anEntry.equals(currentNode.data)) {
+	// check = true;
+	// } else {
+	// currentNode = currentNode.next;
+	// }
+	// }
+	// return currentNode;
+	// } // end remove
 
 	/**
 	 * Removes one occurrence of a given entry from this bag.

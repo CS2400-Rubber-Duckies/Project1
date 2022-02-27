@@ -1,6 +1,10 @@
 public class bagDriver {
     public static void main(String[] args) {
 
+        // ArrayBag test
+
+        // LinkedBag test
+
         // union
         // test case 1
         Integer[] bag1 = { 1, 2 };
