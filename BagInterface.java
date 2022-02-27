@@ -35,6 +35,7 @@ public interface BagInterface<T> {
      * @param anEntry The entry to be removed.
      * @return True if the removal was successful, or false if not.
      */
+
     public boolean remove(T anEntry);
 
     /** Removes all entries from this bag. */
@@ -55,14 +56,6 @@ public interface BagInterface<T> {
      * @return True if the bag contains anEntry, or false if not.
      */
     public boolean contains(T anEntry);
-
-    /**
-     * Locates a specified entry in a bag.
-     * 
-     * @param anEntry The entry to find.
-     * @return True if the bag contains anEntry, or false if not.
-     */
-    public Node getReferenceTo(T anEntry);
 
     /**
      * Retrieves all entries that are in this bag.
