@@ -1,6 +1,8 @@
+import java.util.*;
+
 public class ResizableArrayBag<T> implements BagInterface<T>{
 
-    private final T[] bag;
+    private  T[] bag;
     private static final int Defualt_Capacity = 25;
     private int numberOfEntries;
 
@@ -45,20 +47,47 @@ public class ResizableArrayBag<T> implements BagInterface<T>{
 
     @Override
     public T remove() {
-        T result = removeEntry(numberOfEntries - 1);
-return result;
+        if (!isEmpty()) {
+            T toRemove = bag[new Random().nextInt(getCurrentSize())];
+
+            T[] temp = (T[]) new Object[getCurrentSize() - 1];
+            for (int i = 0, j = 0; i < getCurrentSize(); i++)
+                if (bag[i] != toRemove)
+                    temp[j++] = bag[i];
+
+            bag = temp;
+            numberOfEntries = temp.length;
+            return toRemove;
+        }
+        else
+            return null;
     }
 
     @Override
     public boolean remove(T anEntry) {
-        int index = getIndexOf(anEntry);
-      T result = removeEntry(index);         
-      return anEntry.equals(result);
+        if (!isEmpty() && contains(anEntry)){
+        boolean removed = false;
+        T[] temp = (T[]) new Object[getCurrentSize() - 1];
+        for (int i = 0, j = 0; i < getCurrentSize(); i++)
+                if (!bag[i].equals(anEntry) || removed)
+                    temp[j++] = bag[i];
+                else if (bag[i].equals(anEntry))
+                    removed = true; //to avoid multiple removal
+
+            bag = temp;
+            numberOfEntries = temp.length;
+            return true;
+
     }
+    else
+    return false;
+}
+
 
     @Override
     public void clear() {
-        // TODO Auto-generated method stub
+        while (!isEmpty())
+        remove();
         
     }
 
@@ -72,30 +101,19 @@ return result;
          {
              counter++;
          } // end if
-       }
+       }return counter;
     }
 
     @Override
     public boolean contains(T anEntry) {
-        // TODO Auto-generated method stub
-        return false;
+        if (!isEmpty()) {
+            for (T items : bag)
+                if (items.equals(anEntry))
+                    return true;
+        }
+        return false; 
     }
 
-    @Override
-    public Node getReferenceTo(T anEntry) {
-        boolean found = false;
-		Node currentNode = firstNode;
-		
-		while (!found && (currentNode != null))
-		{
-			if (anEntry.equals(currentNode.data))
-				found = true;
-			else
-				currentNode = currentNode.next;
-		} // end while
-     
-		return currentNode;
-    }
 
     @Override
     public T[] toArray() {
