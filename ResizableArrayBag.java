@@ -138,8 +138,16 @@ public class ResizableArrayBag<T> implements BagInterface<T>{
 
     @Override
     public BagInterface<T> union(BagInterface<T> bag) {
-        // TODO Auto-generated method stub
-        return null;
+        
+        BagInterface<T> bag3 = new ResizableArrayBag<T>();
+        int newLength = this.getCurrentSize() + bag.getCurrentSize();
+       
+        T[] bag1 = this.toArray();
+		T[] bag2 = bag.toArray();
+
+      
+        
+
     }
 
    
