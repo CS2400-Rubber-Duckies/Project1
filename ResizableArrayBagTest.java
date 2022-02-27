@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class ResizableArrayBagTest {
-    public static void main(String[] args) {
+    public static <T> void main(String[] args) {
 
         // Create a Scanner object for user input.
         Scanner in = new Scanner(System.in);
@@ -9,19 +9,19 @@ public class ResizableArrayBagTest {
         // Create an ArrayBag named bag1.
         System.out.print("Size of bag 1: ");
         int size = in.nextInt();
-        Bag bag1 = new ResizableArrayBag(size);
-        in.nextLine();    // consume the rest of the line
+        ResizableArrayBag<T> bag1 = new ResizableArrayBag<T>(size);
+        in.nextLine(); // consume the rest of the line
 
-        //****** Additions *****
+        // ****** Additions *****
 
         // Display capacity of new bag
-        System.out.println("Bag 1 can hold up to " + bag1.capacity() + " items.");
+        System.out.println("Bag 1 can hold up to " + bag1.getCurrentSize() + " items.");
 
         // Determine if ArrayBag is full
-        if (bag1.isFull())
-            System.out.println("Bag is full.");
-        else
-            System.out.println("Bag is NOT full.");
+        // if (bag1.isFull())
+        // System.out.println("Bag is full.");
+        // else
+        // System.out.println("Bag is NOT full.");
 
         // Read in strings, add them to bag1, and print out bag1.
         String itemStr;
@@ -35,8 +35,8 @@ public class ResizableArrayBagTest {
 
         // Increase capacity by 2
         System.out.println("Increasing Bag 1 capacity by 2.");
-        bag1.increaseCapacity(2);
-        System.out.println("Bag 1 can hold up to " + bag1.capacity() + " items.");
+        bag1.add(2);
+        System.out.println("Bag 1 can hold up to " + bag1.getCurrentSize() + " items.");
 
         // Select a random item and print it.
         Object item = bag1.grab();
@@ -59,17 +59,17 @@ public class ResizableArrayBagTest {
         System.out.println();
 
         // Remove all items from bag1 and reprint the bag.
-        Bag other1 = new ResizableArrayBag(2);
+        ResizableArrayBag<T> other1 = new ResizableArrayBag<T>(2);
         other1.add("ff");
         other1.add("aa");
         System.out.println("Removing all items {aa, ff}");
-        bag1.removeItems(other1);
+        bag1.remove(other1);
         System.out.println("bag 1 = " + bag1);
         System.out.println();
 
-         // Create two ArrayBags and return their union (with no duplicates)
+        // Create two ArrayBags and return their union (with no duplicates)
         // {2, 2, 3, 5, 7, 7, 7, 8}
-        Bag b1 = new ResizableArrayBag(8);
+        ResizableArrayBag<T> b1 = new ResizableArrayBag<T>(8);
         b1.add("2");
         b1.add("2");
         b1.add("3");
@@ -80,8 +80,8 @@ public class ResizableArrayBagTest {
         b1.add("8");
         System.out.println("Bag b1 is " + b1);
 
-        //{2, 3, 4, 5, 5, 6, 7}
-        Bag b2 = new ResizableArrayBag(7);
+        // {2, 3, 4, 5, 5, 6, 7}
+        ResizableArrayBag<T> b2 = new ResizableArrayBag<T>(7);
         b2.add("2");
         b2.add("3");
         b2.add("4");
@@ -92,10 +92,10 @@ public class ResizableArrayBagTest {
         System.out.println("Bag b2 is " + b2);
 
         // Be sure to test case with zero items
-        Bag b3 = new ResizableArrayBag();
-        b3 = b1.unionWith(b2);
+        ResizableArrayBag<T> b3 = new ResizableArrayBag<T>();
+        b3 = b1.union(b2);
         System.out.println("Union of b1 & b2 is " + b3);
-        System.out.println("b3 capacity is " + b3.capacity());
+        System.out.println("b3 size is " + b3.getCurrentSize());
         System.out.println();
 
     }
