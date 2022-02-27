@@ -189,11 +189,22 @@ public final class LinkedBag<T> implements BagInterface<T> {
 	public BagInterface<T> intersection(BagInterface<T> bag) {
 		BagInterface<T> bag3 = new LinkedBag<T>();
 		// compare bag1 and bag2 then remove
+		int length;
+		if (this.getCurrentSize() > bag.getCurrentSize()) {
+			length = this.getCurrentSize();
+		} else {
+			length = bag.getCurrentSize();
+		}
+
 		T[] bag1 = this.toArray();
 		T[] bag2 = bag.toArray();
 
 		if (bag1 == null || bag2 == null) {
 			throw new IllegalArgumentException("Bag(s) cannot be null.");
+		}
+
+		for (int i = 0; i < length; i++) {
+
 		}
 
 		return bag3;
