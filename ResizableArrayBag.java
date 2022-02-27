@@ -135,21 +135,38 @@ public class ResizableArrayBag<T> implements BagInterface<T>{
     @Override
     public BagInterface<T> intersection(BagInterface<T> bag) {
         BagInterface<T> bag3 = new ResizableArrayBag<T>();
-        // TODO Auto-generated method stub
-        return null;
-    }
+       // T[] bag1 = this.toArray();
+		//T[] bag2 = bag.toArray();
+
+         for (T item1 : bag.toArray())
+                for (T item2 : this.toArray()) {
+                    if (item1.equals(item2)) {
+                        this.remove(item1);
+                        bag.remove(item2);
+                        bag3.add(item1);
+                        break;
+                    }
+        }
+    return bag3;
+}
 
     @Override
     public BagInterface<T> difference(BagInterface<T> bag) {
         BagInterface<T> bag3 = new ResizableArrayBag<T>();
         int newLength = this.getCurrentSize() + bag.getCurrentSize();
        
-        T[] bag1 = this.toArray();
-		T[] bag2 = bag.toArray();
-
-
-
-        return null;
+     //   T[] bag1 = this.toArray();
+	//	T[] bag2 = bag.toArray();
+        for (T item1 : bag.toArray())
+        for (T item2 : this.toArray()) {
+            if (item1.equals(item2)) {
+                this.remove(item1);
+                bag.remove(item2);
+             
+                break;
+            }
+}
+        return this;
     }
 
     @Override
