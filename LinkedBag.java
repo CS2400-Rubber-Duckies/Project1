@@ -187,21 +187,29 @@ public final class LinkedBag<T> implements BagInterface<T> {
 
 	@Override
 	public BagInterface<T> intersection(BagInterface<T> bag) {
-		BagInterface<T> Bag3 = new LinkedBag<T>();
+		BagInterface<T> bag3 = new LinkedBag<T>();
 		// compare bag1 and bag2 then remove
-		// TODO Auto-generated method stub
+		T[] bag1 = this.toArray();
+		T[] bag2 = bag.toArray();
 
-		return Bag3;
+		if (bag1 == null || bag2 == null) {
+			throw new IllegalArgumentException("Bag(s) cannot be null.");
+		}
+
+		return bag3;
 	}
 
 	@Override
 	public BagInterface<T> union(BagInterface<T> bag) {
-
 		BagInterface<T> bag3 = new LinkedBag<T>(); // made a new array to the union in
 		// while looping through the bag, add unique node
 		// if we already have it in bag3, then don't add
-
-		int length = this.getCurrentSize() + bag.getCurrentSize();
+		int length;
+		if (this.getCurrentSize() > bag.getCurrentSize()) {
+			length = this.getCurrentSize();
+		} else {
+			length = bag.getCurrentSize();
+		}
 
 		T[] bag1 = this.toArray();
 		T[] bag2 = bag.toArray();
@@ -227,7 +235,7 @@ public final class LinkedBag<T> implements BagInterface<T> {
 		BagInterface<T> bag3 = new LinkedBag<T>(); // made a new array to the union in
 		// loop through size of bag 1 and 2
 		// if bag2 has an element in bag1 --> remove that element
-		// 
+		//
 
 		int length = this.getCurrentSize() + bag.getCurrentSize();
 
@@ -239,36 +247,14 @@ public final class LinkedBag<T> implements BagInterface<T> {
 		}
 
 		for (int i = 0; i < this.getCurrentSize(); i++) {
-			for (int j = 0; j < bag.getCurrentSize(); j++)
-			{
-				if (bag1[i] == bag2[j])
-				{
-					remove 
+			for (int j = 0; j < bag.getCurrentSize(); j++) {
+				if (bag1[i] == bag2[j]) {
+					// remove element from bag if they are the same
+					// result is removal of all elements in common
 				}
 			}
-			if (bag1[i] == bag2[i])
-			{
-				
-			}
 		}
-		// TODO Auto-generated method stub
 		return null;
 	}
 
-	/*
-	 * public Bag union(Bag other) {
-	 * if (other == null) {
-	 * throw new IllegalArgumentException("other Bag cannot be null");
-	 * }
-	 * 
-	 * ArrayBag u = new ArrayBag(capacity() + other.capacity());
-	 * 
-	 * u.addUnique(this);
-	 * u.addUnique(other);
-	 * 
-	 * return u;
-	 * }
-	 */
 } // end LinkedBag1
-
-// trying to figure out what error is
