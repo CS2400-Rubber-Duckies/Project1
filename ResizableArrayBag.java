@@ -155,18 +155,26 @@ public class ResizableArrayBag<T> implements BagInterface<T> {
         BagInterface<T> bag3 = new ResizableArrayBag<T>();
         // int newLength = this.getCurrentSize() + bag.getCurrentSize();
 
-        // T[] bag1 = this.toArray();
-        // T[] bag2 = bag.toArray();
-        for (T item1 : bag.toArray())
-            for (T item2 : this.toArray()) {
-                if (item1.equals(item2)) {
-                    this.remove(item1);
-                    bag.remove(item2);
+        T[] bag1 = this.toArray();
+        T[] bag2 = bag.toArray();
 
+        for (T item1 : bag1) {
+            bag3.add(item1);
+        }
+        for (T item2 : bag2) {
+            bag3.add(item2);
+        }
+
+        for (T item1 : bag1) {
+            for (T item2 : bag2) {
+                if (item1.equals(item2)) {
+                    bag3.remove(item1);
+                    bag3.remove(item2);
                     break;
                 }
             }
-        return this;
+        }
+        return bag3;
     }
 
     @Override
