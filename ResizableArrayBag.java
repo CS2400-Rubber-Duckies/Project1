@@ -3,11 +3,11 @@ import java.util.*;
 public class ResizableArrayBag<T> implements BagInterface<T> {
 
     private T[] bag;
-    private static final int Defualt_Capacity = 25;
+    private static final int Default_Capacity = 25;
     private int numberOfEntries;
 
     public ResizableArrayBag() {
-        this(Defualt_Capacity);
+        this(Default_Capacity);
     }
 
     @SuppressWarnings("unchecked")
@@ -32,7 +32,7 @@ public class ResizableArrayBag<T> implements BagInterface<T> {
     @Override
     public boolean add(T newEntry) {
 
-        if (bag.length > Defualt_Capacity) {
+        if (bag.length > Default_Capacity) {
             @SuppressWarnings("unchecked")
             T[] temp = (T[]) new Object[(getCurrentSize() + 1) * 2]; // resizing
             for (int i = 0; i < getCurrentSize(); i++)
@@ -42,7 +42,7 @@ public class ResizableArrayBag<T> implements BagInterface<T> {
             numberOfEntries = temp.length;
             return true;
 
-        } else if (bag.length <= Defualt_Capacity) {
+        } else if (bag.length <= Default_Capacity) {
             @SuppressWarnings("unchecked")
             T[] temp = (T[]) new Object[getCurrentSize() + 1];
             for (int i = 0; i < getCurrentSize(); i++)
@@ -177,7 +177,7 @@ public class ResizableArrayBag<T> implements BagInterface<T> {
 
         T[] bag1 = this.toArray();
         T[] bag2 = bag.toArray();
-        if (newLength <= Defualt_Capacity) {
+        if (newLength <= Default_Capacity) {
             for (T anEntry : bag2)
                 bag3.add(anEntry);
             for (T anEntry : bag1)
