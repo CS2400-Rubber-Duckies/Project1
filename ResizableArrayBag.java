@@ -187,10 +187,4 @@ public class ResizableArrayBag<T> implements BagInterface<T> {
         return bag3;
     }
 
-    @Override
-    public boolean isFull() {
-        // TODO Auto-generated method stub
-        return false;
-    }
-
 }
