@@ -246,9 +246,6 @@ public final class LinkedBag<T> implements BagInterface<T> {
 	@Override
 	public BagInterface<T> difference(BagInterface<T> bag) {
 		BagInterface<T> bag3 = new LinkedBag<T>(); // made a new array to the union in
-		// loop through size of bag 1 and 2
-		// if bag2 has an element in bag1 --> remove that element
-		//
 
 		int length = this.getCurrentSize() + bag.getCurrentSize();
 
@@ -259,15 +256,16 @@ public final class LinkedBag<T> implements BagInterface<T> {
 			throw new IllegalArgumentException("Bag(s) cannot be null.");
 		}
 
-		for (int i = 0; i < this.getCurrentSize(); i++) {
+		for (int i = 0; i < length; i++) {
 			for (int j = 0; j < bag.getCurrentSize(); j++) {
 				if (bag1[i] == bag2[j]) {
+					bag3.remove(bag1[i]);
 					// remove element from bag if they are the same
 					// result is removal of all elements in common
 				}
 			}
 		}
-		return null;
+		return bag3;
 	}
 
 } // end LinkedBag1
