@@ -97,12 +97,6 @@ public final class LinkedBag<T> implements BagInterface<T> {
 		return result;
 	} // end remove
 
-	/**
-	 * Locates a specified entry in a bag.
-	 * 
-	 * @param anEntry The entry to find.
-	 * @return True if the bag contains anEntry, or false if not.
-	 */
 	public Node getReferenceTo(T anEntry) {
 		boolean check = false;
 		Node currentNode = firstNode;
@@ -125,7 +119,6 @@ public final class LinkedBag<T> implements BagInterface<T> {
 	@Override
 	public boolean remove(T anEntry) {
 		boolean result = false;
-
 		boolean check = false;
 		Node currentNode = firstNode;
 		while (!check && (currentNode != null)) {
@@ -135,7 +128,6 @@ public final class LinkedBag<T> implements BagInterface<T> {
 				currentNode = currentNode.next;
 			}
 		}
-
 		Node nodeN = currentNode;
 
 		if (nodeN != null) {
@@ -250,7 +242,6 @@ public final class LinkedBag<T> implements BagInterface<T> {
 				bag3.add(bag2[i]);
 			}
 		}
-
 		return bag3;
 	}
 
