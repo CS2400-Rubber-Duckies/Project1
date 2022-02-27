@@ -30,19 +30,27 @@ public class ResizableArrayBag<T> implements BagInterface<T>{
 
     @Override
     public boolean add(T newEntry) {
-        if (isFull()){
-            int newLength = 2 * bag.length;
-           
-            bag = ResizableArrayBag.copyOf(bag, newLength);
+
+        if (bag.length > Defualt_Capacity){
+            T[] temp = (T[]) new Object[(getCurrentSize() + 1)*2];
+
         }
-        bag[numberOfEntries] = newEntry;
-        numberOfEntries++;
+        if (bag.length <= Defualt_Capacity) {
+            T[] temp = (T[]) new Object[getCurrentSize() + 1];
+            for (int i = 0; i < getCurrentSize(); i++)
+                temp[i] = bag[i];
+            temp[getCurrentSize()] = newEntry;
+            bag = temp;
+            numberOfEntries = temp.length;
+            return true;
+        } else
+            return false;
 
     }
-    @Override
-    public boolean isFull() {
-       return numberOfEntries == bag.length;
-           }
+    //@Override
+   // public boolean isFull() {
+     //  return numberOfEntries == bag.length;
+      //     }
 
 
     @Override
@@ -126,13 +134,21 @@ public class ResizableArrayBag<T> implements BagInterface<T>{
 
     @Override
     public BagInterface<T> intersection(BagInterface<T> bag) {
+        BagInterface<T> bag3 = new ResizableArrayBag<T>();
         // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public BagInterface<T> difference(BagInterface<T> bag) {
-        // TODO Auto-generated method stub
+        BagInterface<T> bag3 = new ResizableArrayBag<T>();
+        int newLength = this.getCurrentSize() + bag.getCurrentSize();
+       
+        T[] bag1 = this.toArray();
+		T[] bag2 = bag.toArray();
+
+
+
         return null;
     }
 
@@ -144,15 +160,16 @@ public class ResizableArrayBag<T> implements BagInterface<T>{
        
         T[] bag1 = this.toArray();
 		T[] bag2 = bag.toArray();
+if (newLength <= Defualt_Capacity){
+    for(T anEntry : bag2)
+        bag3.add(anEntry);
+    for(T anEntry : bag1)
+       bag3.add(anEntry);
+}
 
       
-        
-
+        return bag3;
     }
 
-   
 
-    
-   
-    
 }
