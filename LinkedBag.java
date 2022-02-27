@@ -125,7 +125,18 @@ public final class LinkedBag<T> implements BagInterface<T> {
 	@Override
 	public boolean remove(T anEntry) {
 		boolean result = false;
-		Node nodeN = getReferenceTo(anEntry);
+
+		boolean check = false;
+		Node currentNode = firstNode;
+		while (!check && (currentNode != null)) {
+			if (anEntry.equals(currentNode.data)) {
+				check = true;
+			} else {
+				currentNode = currentNode.next;
+			}
+		}
+
+		Node nodeN = currentNode;
 
 		if (nodeN != null) {
 			nodeN.data = firstNode.data; // Replace located entry with entry in first node
