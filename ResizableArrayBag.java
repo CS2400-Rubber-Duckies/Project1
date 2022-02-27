@@ -1,19 +1,20 @@
 import java.util.*;
 
-public class ResizableArrayBag<T> implements BagInterface<T>{
+public class ResizableArrayBag<T> implements BagInterface<T> {
 
-    private  T[] bag;
+    private T[] bag;
     private static final int Defualt_Capacity = 25;
     private int numberOfEntries;
 
-    public ResizableArrayBag(){
+    public ResizableArrayBag() {
         this(Defualt_Capacity);
     }
 
-    public ResizableArrayBag(int capacity){
-        numberOfEntries =0;
+    @SuppressWarnings("unchecked")
+    public ResizableArrayBag(int capacity) {
+        numberOfEntries = 0;
         @SuppressWarnings("Unchecked")
-        T [] tempBag = (T[])new Object[capacity];
+        T[] tempBag = (T[]) new Object[capacity];
         bag = tempBag;
 
     }
@@ -31,18 +32,17 @@ public class ResizableArrayBag<T> implements BagInterface<T>{
     @Override
     public boolean add(T newEntry) {
 
-        if (bag.length > Defualt_Capacity){
-          @SuppressWarnings("unchecked")
-                T[] temp = (T[]) new Object[(getCurrentSize() + 1)*2]; //resizing
-                for (int i = 0; i < getCurrentSize(); i++)
-                    temp[i] = bag[i];
-                temp[getCurrentSize()] = newEntry;
-                bag = temp;
-                numberOfEntries = temp.length;
-                return true;
-            
-    }
-        else if (bag.length <= Defualt_Capacity) {
+        if (bag.length > Defualt_Capacity) {
+            @SuppressWarnings("unchecked")
+            T[] temp = (T[]) new Object[(getCurrentSize() + 1) * 2]; // resizing
+            for (int i = 0; i < getCurrentSize(); i++)
+                temp[i] = bag[i];
+            temp[getCurrentSize()] = newEntry;
+            bag = temp;
+            numberOfEntries = temp.length;
+            return true;
+
+        } else if (bag.length <= Defualt_Capacity) {
             @SuppressWarnings("unchecked")
             T[] temp = (T[]) new Object[getCurrentSize() + 1];
             for (int i = 0; i < getCurrentSize(); i++)
@@ -55,7 +55,6 @@ public class ResizableArrayBag<T> implements BagInterface<T>{
             return false;
 
     }
-
 
     @Override
     public T remove() {
@@ -70,51 +69,47 @@ public class ResizableArrayBag<T> implements BagInterface<T>{
             bag = temp;
             numberOfEntries = temp.length;
             return toRemove;
-        }
-        else
+        } else
             return null;
     }
 
     @Override
     public boolean remove(T anEntry) {
-        if (!isEmpty() && contains(anEntry)){
-        boolean removed = false;
-        @SuppressWarnings("unchecked")
-        T[] temp = (T[]) new Object[getCurrentSize() - 1];
-        for (int i = 0, j = 0; i < getCurrentSize(); i++)
+        if (!isEmpty() && contains(anEntry)) {
+            boolean removed = false;
+            @SuppressWarnings("unchecked")
+            T[] temp = (T[]) new Object[getCurrentSize() - 1];
+            for (int i = 0, j = 0; i < getCurrentSize(); i++)
                 if (!bag[i].equals(anEntry) || removed)
                     temp[j++] = bag[i];
                 else if (bag[i].equals(anEntry))
-                    removed = true; //to avoid multiple removal
+                    removed = true; // to avoid multiple removal
 
             bag = temp;
             numberOfEntries = temp.length;
             return true;
 
+        } else
+            return false;
     }
-    else
-    return false;
-}
-
 
     @Override
     public void clear() {
         while (!isEmpty())
-        remove();
-        
+            remove();
+
     }
 
     @Override
     public int getFrequencyOf(T anEntry) {
         int counter = 0;
-      
-      for (int index = 0; index < numberOfEntries; index++)
-      {
-         if (anEntry.equals(bag[index]))
-         {
-             counter++;
-         } // end if
-       }return counter;
+
+        for (int index = 0; index < numberOfEntries; index++) {
+            if (anEntry.equals(bag[index])) {
+                counter++;
+            } // end if
+        }
+        return counter;
     }
 
     @Override
@@ -124,16 +119,15 @@ public class ResizableArrayBag<T> implements BagInterface<T>{
                 if (items.equals(anEntry))
                     return true;
         }
-        return false; 
+        return false;
     }
-
 
     @Override
     public T[] toArray() {
         @SuppressWarnings("unchecked")
         T[] result = (T[]) new Object[numberOfEntries];
-        for (int index=0 ;index< numberOfEntries; index++){
-            result [index] = bag [index]; 
+        for (int index = 0; index < numberOfEntries; index++) {
+            result[index] = bag[index];
         }
         return result;
     }
@@ -141,58 +135,62 @@ public class ResizableArrayBag<T> implements BagInterface<T>{
     @Override
     public BagInterface<T> intersection(BagInterface<T> bag) {
         BagInterface<T> bag3 = new ResizableArrayBag<T>();
-       // T[] bag1 = this.toArray();
-		//T[] bag2 = bag.toArray();
+        // T[] bag1 = this.toArray();
+        // T[] bag2 = bag.toArray();
 
-         for (T item1 : bag.toArray())
-                for (T item2 : this.toArray()) {
-                    if (item1.equals(item2)) {
-                        this.remove(item1);
-                        bag.remove(item2);
-                        bag3.add(item1);
-                        break;
-                    }
-        }
-    return bag3;
-}
+        for (T item1 : bag.toArray())
+            for (T item2 : this.toArray()) {
+                if (item1.equals(item2)) {
+                    this.remove(item1);
+                    bag.remove(item2);
+                    bag3.add(item1);
+                    break;
+                }
+            }
+        return bag3;
+    }
 
     @Override
     public BagInterface<T> difference(BagInterface<T> bag) {
         BagInterface<T> bag3 = new ResizableArrayBag<T>();
-       // int newLength = this.getCurrentSize() + bag.getCurrentSize();
-       
-     //   T[] bag1 = this.toArray();
-	//	T[] bag2 = bag.toArray();
+        // int newLength = this.getCurrentSize() + bag.getCurrentSize();
+
+        // T[] bag1 = this.toArray();
+        // T[] bag2 = bag.toArray();
         for (T item1 : bag.toArray())
-        for (T item2 : this.toArray()) {
-            if (item1.equals(item2)) {
-                this.remove(item1);
-                bag.remove(item2);
-             
-                break;
+            for (T item2 : this.toArray()) {
+                if (item1.equals(item2)) {
+                    this.remove(item1);
+                    bag.remove(item2);
+
+                    break;
+                }
             }
-}
         return this;
     }
 
     @Override
     public BagInterface<T> union(BagInterface<T> bag) {
-        
+
         BagInterface<T> bag3 = new ResizableArrayBag<T>();
         int newLength = this.getCurrentSize() + bag.getCurrentSize();
-       
-        T[] bag1 = this.toArray();
-		T[] bag2 = bag.toArray();
-if (newLength <= Defualt_Capacity){
-    for(T anEntry : bag2)
-        bag3.add(anEntry);
-    for(T anEntry : bag1)
-       bag3.add(anEntry);
-}
 
-      
+        T[] bag1 = this.toArray();
+        T[] bag2 = bag.toArray();
+        if (newLength <= Defualt_Capacity) {
+            for (T anEntry : bag2)
+                bag3.add(anEntry);
+            for (T anEntry : bag1)
+                bag3.add(anEntry);
+        }
+
         return bag3;
     }
 
+    @Override
+    public boolean isFull() {
+        // TODO Auto-generated method stub
+        return false;
+    }
 
 }
