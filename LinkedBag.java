@@ -202,11 +202,13 @@ public final class LinkedBag<T> implements BagInterface<T> {
 		if (bag1 == null || bag2 == null) {
 			throw new IllegalArgumentException("Bag(s) cannot be null.");
 		}
-
 		for (int i = 0; i < length; i++) {
-
+			if (this.contains(bag2[i])) {
+				if (!bag3.contains(bag2[i])) {
+					bag3.add(bag1[i]);
+				}
+			}
 		}
-
 		return bag3;
 	}
 
