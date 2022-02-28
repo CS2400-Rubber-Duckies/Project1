@@ -270,4 +270,6 @@ public final class LinkedBag<T> implements BagInterface<T> {
 		return bag3;
 	}
 
+	
+
 } // end of LinkedBag1

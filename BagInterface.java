@@ -13,6 +13,7 @@ public interface BagInterface<T> {
      * @return True if the bag is empty, or false if not.
      */
     public boolean isEmpty();
+  
 
     /**
      * Adds a new entry to this bag.
@@ -48,6 +49,8 @@ public interface BagInterface<T> {
      */
     public int getFrequencyOf(T anEntry);
 
+    
+
     /**
      * Tests whether this bag contains a given entry.
      * 
@@ -62,6 +65,7 @@ public interface BagInterface<T> {
      * @param anEntry The entry to find.
      * @return True if the bag contains anEntry, or false if not.
      */
+  
 
     /**
      * Retrieves all entries that are in this bag.
@@ -71,27 +75,22 @@ public interface BagInterface<T> {
      */
     public T[] toArray();
 
-    /**
-     * items that bag 1 and 2 have in common
-     * 
+    /** items that bag 1 and 2 have in common
      * @return a new bag wiht common entry of bag1 and bag2
      */
 
     public BagInterface<T> intersection(BagInterface<T> bag);
 
-    /**
-     * return eveything else except itme thay have in common
-     * 
-     * @return
+    /**return eveything else except itme thay have in common
+     * @return 
      */
     public BagInterface<T> difference(BagInterface<T> bag);
 
-    /**
-     * Returns the union of bag1 and bag2
-     * 
+
+    /** Returns the union of bag1 and bag2
      * @return a new bag that contians items from bag1 and bag2
      */
-
+    
     public BagInterface<T> union(BagInterface<T> bag);
 
 } // end BagInterface
