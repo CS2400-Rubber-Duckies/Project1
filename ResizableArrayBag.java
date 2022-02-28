@@ -34,7 +34,7 @@ public class ResizableArrayBag<T> implements BagInterface<T> {
 
         if (bag.length > Default_Capacity) {
             @SuppressWarnings("unchecked")
-            T[] temp = (T[]) new Object[(getCurrentSize() + 1) * 2]; // resizing
+            T[] temp = (T[]) new Object[(getCurrentSize() + 1) * 2]; // resizing if capacity reached
             for (int i = 0; i < getCurrentSize(); i++)
                 temp[i] = bag[i];
             temp[getCurrentSize()] = newEntry;
@@ -137,7 +137,9 @@ public class ResizableArrayBag<T> implements BagInterface<T> {
         BagInterface<T> bag3 = new ResizableArrayBag<T>();
         // T[] bag1 = this.toArray();
         // T[] bag2 = bag.toArray();
-
+        if (this == null || bag == null) {
+			throw new IllegalArgumentException("Bag(s) cannot be null.");
+		}
         for (T item1 : bag.toArray())
             for (T item2 : this.toArray()) {
                 if (item1.equals(item2)) {
@@ -154,9 +156,13 @@ public class ResizableArrayBag<T> implements BagInterface<T> {
     public BagInterface<T> difference(BagInterface<T> bag) {
         BagInterface<T> bag3 = new ResizableArrayBag<T>();
         // int newLength = this.getCurrentSize() + bag.getCurrentSize();
+        
 
         T[] bag1 = this.toArray();
         T[] bag2 = bag.toArray();
+        if (bag1 == null || bag2 == null) {
+			throw new IllegalArgumentException("Bag(s) cannot be null.");
+		}
 
         for (T item1 : bag1) {
             bag3.add(item1);
@@ -185,6 +191,9 @@ public class ResizableArrayBag<T> implements BagInterface<T> {
 
         T[] bag1 = this.toArray();
         T[] bag2 = bag.toArray();
+        if (bag1 == null || bag2 == null) {
+			throw new IllegalArgumentException("Bag(s) cannot be null.");
+		}
         if (newLength <= Default_Capacity) {
             for (T anEntry : bag2)
                 bag3.add(anEntry);

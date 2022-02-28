@@ -89,6 +89,7 @@ public interface BagInterface<T> {
 
     /** Returns the union of bag1 and bag2
      * @return a new bag that contians items from bag1 and bag2
+     * @param bag
      */
     
     public BagInterface<T> union(BagInterface<T> bag);
