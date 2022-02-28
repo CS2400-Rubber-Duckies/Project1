@@ -36,20 +36,20 @@ public class bagDriver {
     BagInterface<String> LBAG1 = new LinkedBag<>();
     BagInterface<String> LBAG2 = new LinkedBag<>();
 
-     LBAG1.add("A");              
      LBAG1.add("A");
      LBAG1.add("B");
-     LBAG1.add("C");
+     LBAG1.add("z");
      LBAG1.add("A");
      LBAG1.add("B");
-     LBAG1.add("G");
+    // LBAG1.add("G");
     
-     LBAG2.add("B");
-     LBAG2.add("U");
-     LBAG2.add("A");
-     LBAG2.add("A");
+     //LBAG2.add("B");
+     //LBAG2.add("U");
+     //LBAG2.add("A");
+     LBAG2.add("m");
      LBAG2.add("B");
      LBAG2.add("G");
+     LBAG2.add("y");
     System.out.println("Contents of Linkedbag 1: " + Arrays.toString(LBAG1.toArray()));
     System.out.println("Contents of Linkedbag 2: " + Arrays.toString(LBAG2.toArray()));
 
