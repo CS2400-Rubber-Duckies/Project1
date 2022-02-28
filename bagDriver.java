@@ -12,9 +12,15 @@ public class bagDriver {
         String[] ContentsBag1 ={"A","B","A","A","C","B"};
         String[] ContentsBag2 ={"A","B","A","C","D"};
          
-        BAG.add("fb");
+        BAG.add("w");
 
 System.out.println(BAG);
+
+ResizableArrayBag union = BAG.union( ContentsBag1 []);
+System.out.println("Union cap: " + union.getCurrentSize());
+
+System.out.println(union);
+
         // LinkedBag test
 
         // union
