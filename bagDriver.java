@@ -23,42 +23,44 @@ public class bagDriver {
      BAG2.add("A");
      BAG2.add("B");
      BAG2.add("G");
-    System.out.println("Contents of bag 1: " + Arrays.toString(BAG1.toArray()));
-    System.out.println("Contents of bag 2: " + Arrays.toString(BAG2.toArray()));
+    System.out.println("Contents of RArraybag 1: " + Arrays.toString(BAG1.toArray()));
+    System.out.println("Contents of RArraybag 2: " + Arrays.toString(BAG2.toArray()));
 
     System.out.println("Union: "+ Arrays.toString(BAG1.union(BAG2).toArray()));
+
+    System.out.println("Difference: "+ Arrays.toString(BAG1.difference(BAG2).toArray()));
+
+    System.out.println("Intercection: "+ Arrays.toString(BAG1.intersection(BAG2).toArray()));
+    
+        //LinkedBag Test
+    BagInterface<String> LBAG1 = new LinkedBag<>();
+    BagInterface<String> LBAG2 = new LinkedBag<>();
+
+     LBAG1.add("A");              
+     LBAG1.add("A");
+     LBAG1.add("B");
+     LBAG1.add("C");
+     LBAG1.add("A");
+     LBAG1.add("B");
+     LBAG1.add("G");
+    
+     LBAG2.add("B");
+     LBAG2.add("U");
+     LBAG2.add("A");
+     LBAG2.add("A");
+     LBAG2.add("B");
+     LBAG2.add("G");
+    System.out.println("Contents of Linkedbag 1: " + Arrays.toString(LBAG1.toArray()));
+    System.out.println("Contents of Linkedbag 2: " + Arrays.toString(LBAG2.toArray()));
+
+    System.out.println("Union: "+ Arrays.toString(LBAG1.union(LBAG2).toArray()));
+
+    System.out.println("Difference: "+ Arrays.toString(LBAG1.difference(LBAG2).toArray()));
+
+    System.out.println("Intercection: "+ Arrays.toString(LBAG1.intersection(LBAG2).toArray()));
     
 
-    
-    //  String[] ContentsBag1 ={"A","B","A","A","C","B"};
-      //  String[] ContentsBag2 ={"A","B","A","C","D"};
          
-     //   BAG.add("w");
-
-////System.out.println(BAG);
-
-//ResizableArrayBag union = (ResizableArrayBag) BAG.union(BAG);
-//System.out.println("Union capacity: " + union.getCurrentSize());
-
-//System.out.println(BAG.union(BAG));
-
-        // LinkedBag test
-
-        // union
-        // test case 1
-      //  Integer[] bag1 = { 1, 2 };
-       // Integer[] bag2 = { 1 };
-        // test case 2 (duplicates)
-       // Integer[] bag1 = { 1, 2, 3, 2 };
-       // Integer[] bag2 = { 1, 2 };
-        // test case 3
-       // Integer[] bag1 = { 1, 2, 3, 2 };
-       // Integer[] bag2 = { 1, 2 };
-        // test case 4
-
-        // test case 5
-
-        // test case 6
 
     }
 }
