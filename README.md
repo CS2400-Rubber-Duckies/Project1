@@ -7,4 +7,4 @@ Rubber Duckies: Gelila Chaka and UyenNghi Nguyen
 
 Video Link: https://www.youtube.com/watch?v=pSDgxDUG-Vg
 
-Javadoc Link: 
+Javadoc Link: https://github.com/CS2400-Rubber-Duckies/Project1/blob/main/JavaDoc.html
