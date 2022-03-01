@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class ResizableArrayBagTest {
     public static <T> void main(String[] args) {
         BagInterface<String> testBag1 = new ResizableArrayBag<>();
