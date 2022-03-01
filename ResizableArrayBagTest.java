@@ -33,8 +33,7 @@ public class ResizableArrayBagTest {
         testBag1.add("b");
 
         // getFrequencyOf method
-        testBag2.getFrequencyOf("o");
-        System.out.println(Arrays.toString(testBag2.toArray()));
+        System.out.println("FREQUENCY OF \"o\": " + testBag2.getFrequencyOf("o") + "\n");
 
         // contains method (false)
         testBag1.contains("c");
@@ -42,7 +41,7 @@ public class ResizableArrayBagTest {
         testBag1.contains("a");
 
         // INTERSECTION METHOD TESTING
-        System.out.println("---------- INTERSECTION METHOD TESTING ----------");
+        System.out.println("---------- INTERSECTION METHOD TESTING ----------" + "\n");
 
         // intersection method: (case 1) when they don't have same elements
         System.out.println("Bag 1: " + Arrays.toString(testBag1.toArray()) + "\n" + "Bag 2: "
@@ -50,7 +49,7 @@ public class ResizableArrayBagTest {
         testBag3 = testBag1.intersection(testBag2);
         System.out.println(
                 "Intersection Case 1 - when they don't have any matching elements: "
-                        + Arrays.toString(testBag3.toArray()));
+                        + Arrays.toString(testBag3.toArray()) + "\n");
 
         // intersection method: (case 2) when they have same elements
         testBag1.add("o");
@@ -59,7 +58,7 @@ public class ResizableArrayBagTest {
         testBag3 = testBag1.intersection(testBag2);
         System.out
                 .println("Intersection Case 2 - when they have matching elements: "
-                        + Arrays.toString(testBag3.toArray()));
+                        + Arrays.toString(testBag3.toArray()) + "\n");
 
         // intersection method: (case 3) when one is null
         testBag1.clear();
@@ -67,14 +66,16 @@ public class ResizableArrayBagTest {
                 + Arrays.toString(testBag2.toArray()));
         testBag3 = testBag1.intersection(testBag2);
         System.out
-                .println("Intersection Case 3 - when one of the bags are null: " + Arrays.toString(testBag3.toArray()));
+                .println("Intersection Case 3 - when one of the bags are null: " + Arrays.toString(testBag3.toArray())
+                        + "\n");
 
         // intersection method: (case 4) when both are null
         testBag2.clear();
         System.out.println("Bag 1: " + Arrays.toString(testBag1.toArray()) + "\n" + "Bag 2: "
                 + Arrays.toString(testBag2.toArray()));
         testBag3 = testBag1.intersection(testBag2);
-        System.out.println("Intersection Case 4 - when both bags are null: " + Arrays.toString(testBag3.toArray()));
+        System.out.println(
+                "Intersection Case 4 - when both bags are null: " + Arrays.toString(testBag3.toArray()) + "\n");
 
         // intersection method: (case 5) when all elements match
         testBag1.add("c");
@@ -90,10 +91,11 @@ public class ResizableArrayBagTest {
         System.out.println("Bag 1: " + Arrays.toString(testBag1.toArray()) + "\n" + "Bag 2: "
                 + Arrays.toString(testBag2.toArray()));
         testBag3 = testBag1.intersection(testBag2);
-        System.out.println("Intersection Case 4 - when all elements match: " + Arrays.toString(testBag3.toArray()));
+        System.out.println(
+                "Intersection Case 4 - when all elements match: " + Arrays.toString(testBag3.toArray()) + "\n");
 
         // DIFFERENCE METHOD TESTING
-        System.out.println("---------- DIFFERENCE METHOD TESTING ----------");
+        System.out.println("---------- DIFFERENCE METHOD TESTING ----------" + "\n");
 
         // difference method: (case 1) when they don't have same elements
         System.out.println("Bag 1: " + Arrays.toString(testBag1.toArray()) + "\n" + "Bag 2: "
@@ -101,7 +103,7 @@ public class ResizableArrayBagTest {
         testBag3 = testBag1.difference(testBag2);
         System.out.println(
                 "Difference Case 1 - when they don't have any matching elements: "
-                        + Arrays.toString(testBag3.toArray()));
+                        + Arrays.toString(testBag3.toArray()) + "\n");
 
         // difference method: (case 2) when they have same elements
         testBag1.add("o");
@@ -110,21 +112,24 @@ public class ResizableArrayBagTest {
         testBag3 = testBag1.difference(testBag2);
         System.out
                 .println(
-                        "Difference Case 2 - when they have matching elements: " + Arrays.toString(testBag3.toArray()));
+                        "Difference Case 2 - when they have matching elements: " + Arrays.toString(testBag3.toArray())
+                                + "\n");
 
         // difference method: (case 3) when one is null
         testBag1.clear();
         System.out.println("Bag 1: " + Arrays.toString(testBag1.toArray()) + "\n" + "Bag 2: "
                 + Arrays.toString(testBag2.toArray()));
         testBag3 = testBag1.difference(testBag2);
-        System.out.println("Difference Case 3 - when one of the bags are null: " + Arrays.toString(testBag3.toArray()));
+        System.out.println(
+                "Difference Case 3 - when one of the bags are null: " + Arrays.toString(testBag3.toArray()) + "\n");
 
         // difference method: (case 4) when both are null
         testBag2.clear();
         System.out.println("Bag 1: " + Arrays.toString(testBag1.toArray()) + "\n" + "Bag 2: "
                 + Arrays.toString(testBag2.toArray()));
         testBag3 = testBag1.difference(testBag2);
-        System.out.println("Difference Case 4 - when both bags are null: " + Arrays.toString(testBag3.toArray()));
+        System.out
+                .println("Difference Case 4 - when both bags are null: " + Arrays.toString(testBag3.toArray()) + "\n");
 
         // difference method: (case 5) when all elements match
         testBag1.add("c");
@@ -140,7 +145,8 @@ public class ResizableArrayBagTest {
         System.out.println("Bag 1: " + Arrays.toString(testBag1.toArray()) + "\n" + "Bag 2: "
                 + Arrays.toString(testBag2.toArray()));
         testBag3 = testBag1.difference(testBag2);
-        System.out.println("Difference Case 4 - when all elements match: " + Arrays.toString(testBag3.toArray()));
+        System.out
+                .println("Difference Case 4 - when all elements match: " + Arrays.toString(testBag3.toArray()) + "\n");
 
         // UNION METHOD TESTING
         System.out.println("---------- UNION METHOD TESTING ----------");
@@ -151,7 +157,7 @@ public class ResizableArrayBagTest {
         testBag3 = testBag1.union(testBag2);
         System.out.println(
                 "Difference Case 1 - when they don't have any matching elements: "
-                        + Arrays.toString(testBag3.toArray()));
+                        + Arrays.toString(testBag3.toArray()) + "\n");
 
         // union method: (case 2) when they have same elements
         testBag1.add("o");
@@ -160,21 +166,24 @@ public class ResizableArrayBagTest {
         testBag3 = testBag1.union(testBag2);
         System.out
                 .println(
-                        "Difference Case 2 - when they have matching elements: " + Arrays.toString(testBag3.toArray()));
+                        "Difference Case 2 - when they have matching elements: " + Arrays.toString(testBag3.toArray())
+                                + "\n");
 
         // union method: (case 3) when one is null
         testBag1.clear();
         System.out.println("Bag 1: " + Arrays.toString(testBag1.toArray()) + "\n" + "Bag 2: "
                 + Arrays.toString(testBag2.toArray()));
         testBag3 = testBag1.union(testBag2);
-        System.out.println("Difference Case 3 - when one of the bags are null: " + Arrays.toString(testBag3.toArray()));
+        System.out.println(
+                "Difference Case 3 - when one of the bags are null: " + Arrays.toString(testBag3.toArray()) + "\n");
 
         // union method: (case 4) when both are null
         testBag2.clear();
         System.out.println("Bag 1: " + Arrays.toString(testBag1.toArray()) + "\n" + "Bag 2: "
                 + Arrays.toString(testBag2.toArray()));
         testBag3 = testBag1.union(testBag2);
-        System.out.println("Difference Case 4 - when both bags are null: " + Arrays.toString(testBag3.toArray()));
+        System.out
+                .println("Difference Case 4 - when both bags are null: " + Arrays.toString(testBag3.toArray()) + "\n");
 
         // union method: (case 5) when all elements match
         testBag1.add("c");
@@ -190,7 +199,8 @@ public class ResizableArrayBagTest {
         System.out.println("Bag 1: " + Arrays.toString(testBag1.toArray()) + "\n" + "Bag 2: "
                 + Arrays.toString(testBag2.toArray()));
         testBag3 = testBag1.union(testBag2);
-        System.out.println("Difference Case 4 - when all elements match: " + Arrays.toString(testBag3.toArray()));
+        System.out
+                .println("Difference Case 4 - when all elements match: " + Arrays.toString(testBag3.toArray()) + "\n");
 
     }
 }
