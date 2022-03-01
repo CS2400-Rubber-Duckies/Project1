@@ -41,6 +41,8 @@ public class ResizableArrayBagTest {
         // contains method (true)
         testBag1.contains("a");
 
+        // INTERSECTION METHOD TESTING
+
         // intersection method: (case 1) when they don't have same elements
         System.out.println("Bag 1: " + testBag1 + "\n" + "Bag 2: " + testBag2);
         System.out.println(
@@ -75,6 +77,43 @@ public class ResizableArrayBagTest {
 
         System.out.println("Bag 1: " + testBag1 + "\n" + "Bag 2: " + testBag2);
         System.out.println("Intersection Case 4 - when all elements match: " + testBag1.intersection(testBag2));
+
+        // DIFFERENCE METHOD TESTING
+
+        // difference method: (case 1) when they don't have same elements
+        System.out.println("Bag 1: " + testBag1 + "\n" + "Bag 2: " + testBag2);
+        System.out.println(
+                "Difference Case 1 - when they don't have any matching elements: " + testBag1.difference(testBag2));
+
+        // difference method: (case 2) when they have same elements
+        testBag1.add("o");
+        System.out.println("Bag 1: " + testBag1 + "\n" + "Bag 2: " + testBag2);
+        System.out
+                .println("Difference Case 2 - when they have matching elements: " + testBag1.difference(testBag2));
+
+        // difference method: (case 3) when one is null
+        testBag1.clear();
+        System.out.println("Bag 1: " + testBag1 + "\n" + "Bag 2: " + testBag2);
+        System.out.println("Difference Case 3 - when one of the bags are null: " + testBag1.difference(testBag2));
+
+        // difference method: (case 4) when both are null
+        testBag2.clear();
+        System.out.println("Bag 1: " + testBag1 + "\n" + "Bag 2: " + testBag2);
+        System.out.println("Difference Case 4 - when both bags are null: " + testBag1.difference(testBag2));
+
+        // difference method: (case 5) when all elements match
+        testBag1.add("c");
+        testBag1.add("d");
+        testBag1.add("e");
+        testBag1.add("f");
+
+        testBag2.add("c");
+        testBag2.add("d");
+        testBag2.add("e");
+        testBag2.add("f");
+
+        System.out.println("Bag 1: " + testBag1 + "\n" + "Bag 2: " + testBag2);
+        System.out.println("Difference Case 4 - when all elements match: " + testBag1.difference(testBag2));
 
     }
 }
