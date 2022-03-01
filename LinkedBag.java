@@ -205,7 +205,7 @@ public final class LinkedBag<T> implements BagInterface<T> {
 		if (bag1 == null || bag2 == null) {
 			throw new IllegalArgumentException("Bag(s) cannot be null.");
 		}
-		for (int i = 0; i < length; i++) {
+		for (int i = 0; i < length -1; i++) {
 			if (this.contains(bag2[i])) {
 				if (!bag3.contains(bag2[i])) {
 					bag3.add(bag1[i]);
@@ -234,7 +234,7 @@ public final class LinkedBag<T> implements BagInterface<T> {
 			throw new IllegalArgumentException("Bag(s) cannot be null.");
 		}
 
-		for (int i = 0; i < length; i++) {
+		for (int i = 0; i < length -1; i++) {
 			if (!bag3.contains(bag1[i])) {
 				bag3.add(bag1[i]);
 			}
@@ -263,7 +263,7 @@ public final class LinkedBag<T> implements BagInterface<T> {
 			throw new IllegalArgumentException("Bag(s) cannot be null.");
 		}
 
-		for (int i = 0; i < length; i++) {
+		for (int i = 0; i < length -1 ; i++) {
 			for (int j = 0; j < bag.getCurrentSize(); j++) {
 				if (bag1[i] == bag2[j]) {
 					bag3.remove(bag1[i]);

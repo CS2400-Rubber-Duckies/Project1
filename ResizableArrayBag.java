@@ -194,7 +194,7 @@ public class ResizableArrayBag<T> implements BagInterface<T> {
         if (bag1 == null || bag2 == null) {
 			throw new IllegalArgumentException("Bag(s) cannot be null.");
 		}
-        if (newLength <= Default_Capacity) {
+        if (newLength <= Default_Capacity || newLength > Default_Capacity) {
             for (T anEntry : bag2)
                 bag3.add(anEntry);
             for (T anEntry : bag1)
