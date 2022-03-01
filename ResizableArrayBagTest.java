@@ -1,7 +1,40 @@
 import java.util.*;
 
+
 public class ResizableArrayBagTest {
+   
     public static <T> void main(String[] args) {
+    BagInterface<String> testBag1 = new ResizableArrayBag<>();
+    BagInterface<String> testBag2 = new ResizableArrayBag<>();
+//ADD
+testBag1.add("t");
+testBag1.add("w");
+testBag2.add("o");
+testBag2.add("o");
+testBag2.add("o");
+
+System.out.println("TEST BAG1 CONTNET " + testBag1 );
+System.out.println("TEST BAG2 CONTENT " + testBag2 );
+
+//remove
+testBag1.remove("w");
+System.out.println(testBag1);
+//getfrequency
+
+testBag2.getFrequencyOf("o");
+System.out.println(testBag2);
+
+}}
+
+
+
+
+
+
+//import java.util.*;
+
+//public class ResizableArrayBagTest {
+   // public static <T> void main(String[] args) {
 
         // // Create a Scanner object for user input.
         // Scanner in = new Scanner(System.in);
@@ -101,7 +134,7 @@ public class ResizableArrayBagTest {
         // System.out.println();
 
         // create ResizableArrayBag with DefaultCapacity
-        ResizableArrayBag<T> b1 = new ResizableArrayBag<T>();
+       // ResizableArrayBag<T> b1 = new ResizableArrayBag<T>();
 
-    }
-}
+   // }
+//}
