@@ -47,8 +47,8 @@ public class bagDriver {
         LBAG2.add("B");
         LBAG2.add("G");
         LBAG2.add("y");
-        System.out.println("Contents of Linkedbag 1: " + Arrays.toString(LBAG1.toArray()));
-        System.out.println("Contents of Linkedbag 2: " + Arrays.toString(LBAG2.toArray()));
+        System.out.println("Contents of LinkedBag 1: " + Arrays.toString(LBAG1.toArray()));
+        System.out.println("Contents of LinkedBag 2: " + Arrays.toString(LBAG2.toArray()));
 
         System.out.println("Union: " + Arrays.toString(LBAG1.union(LBAG2).toArray()));
 
