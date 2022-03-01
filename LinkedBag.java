@@ -249,7 +249,12 @@ public final class LinkedBag<T> implements BagInterface<T> {
 	public BagInterface<T> difference(BagInterface<T> bag) {
 		BagInterface<T> bag3 = new LinkedBag<T>(); // made a new array to the union in
 
-		int length = this.getCurrentSize() + bag.getCurrentSize();
+		int length;
+		if (this.getCurrentSize() > bag.getCurrentSize()) {
+			length = this.getCurrentSize();
+		} else {
+			length = bag.getCurrentSize();
+		}
 
 		T[] bag1 = this.toArray();
 		T[] bag2 = bag.toArray();
@@ -269,7 +274,5 @@ public final class LinkedBag<T> implements BagInterface<T> {
 		}
 		return bag3;
 	}
-
-	
 
 } // end of LinkedBag1

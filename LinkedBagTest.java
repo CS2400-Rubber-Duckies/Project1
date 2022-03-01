@@ -97,6 +97,15 @@ public class LinkedBagTest {
 
         // DIFFERENCE METHOD TESTING
         System.out.println("---------- DIFFERENCE METHOD TESTING ----------" + "\n");
+        testBag1.clear();
+        testBag2.clear();
+        testBag3.clear();
+        testBag1.add("t");
+        testBag1.add("w");
+
+        testBag2.add("o");
+        testBag2.add("o");
+        testBag2.add("o");
 
         // difference method: (case 1) when they don't have same elements
         System.out.println("Bag 1: " + Arrays.toString(testBag1.toArray()) + "\n" + "Bag 2: "
@@ -151,13 +160,22 @@ public class LinkedBagTest {
 
         // UNION METHOD TESTING
         System.out.println("---------- UNION METHOD TESTING ----------");
+        testBag1.clear();
+        testBag2.clear();
+        testBag3.clear();
+        testBag1.add("t");
+        testBag1.add("w");
+
+        testBag2.add("o");
+        testBag2.add("o");
+        testBag2.add("o");
 
         // union method: (case 1) when they don't have same elements
         System.out.println("Bag 1: " + Arrays.toString(testBag1.toArray()) + "\n" + "Bag 2: "
                 + Arrays.toString(testBag2.toArray()));
         testBag3 = testBag1.union(testBag2);
         System.out.println(
-                "Difference Case 1 - when they don't have any matching elements: "
+                "Union Case 1 - when they don't have any matching elements: "
                         + Arrays.toString(testBag3.toArray()) + "\n");
 
         // union method: (case 2) when they have same elements
@@ -167,7 +185,7 @@ public class LinkedBagTest {
         testBag3 = testBag1.union(testBag2);
         System.out
                 .println(
-                        "Difference Case 2 - when they have matching elements: " + Arrays.toString(testBag3.toArray())
+                        "Union Case 2 - when they have matching elements: " + Arrays.toString(testBag3.toArray())
                                 + "\n");
 
         // union method: (case 3) when one is null
@@ -176,7 +194,7 @@ public class LinkedBagTest {
                 + Arrays.toString(testBag2.toArray()));
         testBag3 = testBag1.union(testBag2);
         System.out.println(
-                "Difference Case 3 - when one of the bags are null: " + Arrays.toString(testBag3.toArray()) + "\n");
+                "Union Case 3 - when one of the bags are null: " + Arrays.toString(testBag3.toArray()) + "\n");
 
         // union method: (case 4) when both are null
         testBag2.clear();
@@ -184,7 +202,7 @@ public class LinkedBagTest {
                 + Arrays.toString(testBag2.toArray()));
         testBag3 = testBag1.union(testBag2);
         System.out
-                .println("Difference Case 4 - when both bags are null: " + Arrays.toString(testBag3.toArray()) + "\n");
+                .println("Union Case 4 - when both bags are null: " + Arrays.toString(testBag3.toArray()) + "\n");
 
         // union method: (case 5) when all elements match
         testBag1.add("c");
@@ -201,7 +219,7 @@ public class LinkedBagTest {
                 + Arrays.toString(testBag2.toArray()));
         testBag3 = testBag1.union(testBag2);
         System.out
-                .println("Difference Case 4 - when all elements match: " + Arrays.toString(testBag3.toArray()) + "\n");
+                .println("Union Case 4 - when all elements match: " + Arrays.toString(testBag3.toArray()) + "\n");
 
     }
 }
